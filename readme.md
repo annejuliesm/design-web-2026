@@ -99,8 +99,8 @@ A ideia foi manter os componentes do DaisyUI, mas personalizar a página para cr
 
 A página possui dois temas:
 
-- ☀️ Tema claro
-- 🌙 Tema escuro
+- ☀︎ Tema claro
+- ☾ Tema escuro
 
 A troca pode ser feita pelo botão localizado na navbar.
 
