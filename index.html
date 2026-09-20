@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anne Julie | Portfólio</title>
+
+    <!-- DaisyUI -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@5"
+        rel="stylesheet"
+        type="text/css"
+    >
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-base-200 text-base-content">
+
+    <header class="sticky top-0 z-50">
+        <div class="navbar bg-base-100/95 backdrop-blur-md shadow-sm px-4 md:px-8">
+
+            <div class="flex-1">
+                <a
+                    href="#inicio"
+                    class="text-2xl font-bold text-pink-600"
+                >
+                    Julie<span class="text-pink-400">.</span>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex gap-2">
+                <a href="#sobre" class="btn btn-ghost">
+                    Sobre
+                </a>
+
+                <a href="#projetos" class="btn btn-ghost">
+                    Projetos
+                </a>
+
+                <a href="#contato" class="btn btn-ghost">
+                    Contato
+                </a>
+            </nav>
+
+            <div class="ml-2">
+                <label class="swap swap-rotate">
+
+                    <input
+                        type="checkbox"
+                        id="theme-toggle"
+                        aria-label="Alternar tema"
+                    />
+
+                    <span class="swap-on text-xl">☀︎</span>
+
+                    <span class="swap-off text-xl">☾</span>
+
+                </label>
+            </div>
+
+            <div class="dropdown dropdown-end md:hidden ml-2">
+                <div
+                    tabindex="0"
+                    role="button"
+                    class="btn btn-ghost btn-circle"
+                >
+                    ☰
+                </div>
+
+                <ul
+                    tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-40 p-2 shadow"
+                >
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+
+                    <li>
+                        <a href="#projetos">Projetos</a>
+                    </li>
+
+                    <li>
+                        <a href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <section
+            id="inicio"
+            class="min-h-[90vh] flex items-center px-6 py-16"
+        >
+
+            <div class="max-w-6xl mx-auto w-full">
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                    <div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="badge badge-primary badge-lg">
+                                Infoweb
+                            </span>
+
+                            <span class="badge badge-secondary badge-lg">
+                                Desenvolvimento Web
+                            </span>
+
+                            <span class="badge badge-outline badge-lg">
+                                UI/UX
+                            </span>
+                        </div>
+
+                        <h1
+                            class="text-5xl md:text-6xl font-bold leading-tight"
+                        >
+                            Olá! Eu sou
+                            <span class="text-pink-600">
+                                Anne Julie.
+                            </span>
+                        </h1>
+
+                        <p
+                            class="text-lg md:text-xl mt-6 max-w-xl opacity-80 leading-relaxed"
+                        >
+                            Sou estudante de Informática para Internet no IFRN
+                            e gosto de transformar ideias em projetos criativos
+                            usando tecnologia e design.
+                        </p>
+
+                        <div class="flex flex-wrap gap-3 mt-8">
+
+                            <a
+                                href="#projetos"
+                                class="btn btn-primary"
+                            >
+                                Ver meus projetos
+                            </a>
+
+                            <a
+                                href="#contato"
+                                class="btn btn-outline"
+                            >
+                                Entre em contato
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hidden lg:flex justify-center">
+
+                        <div
+                            class="w-80 h-80 rounded-full bg-pink-200 dark:bg-pink-900/40 flex items-center justify-center"
+                        >
+
+                            <div
+                                class="w-64 h-64 rounded-full bg-pink-500 flex items-center justify-center shadow-2xl"
+                            >
+
+                                <div class="text-center text-white px-8">
+
+                                    <div class="text-6xl mb-4">
+                                        🖳
+                                    </div>
+
+                                    <p class="font-bold text-xl">
+                                        Criatividade
+                                    </p>
+
+                                    <p class="text-pink-100">
+                                        + tecnologia
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="sobre"
+            class="py-20 px-6 bg-base-100"
+        >
+
+            <div class="max-w-6xl mx-auto">
+
+                <div class="text-center mb-12">
+
+                    <span class="badge badge-primary mb-3">
+                        Sobre mim
+                    </span>
+
+                    <h2 class="text-4xl font-bold">
+                        Conheça um pouco mais
+                    </h2>
+
+                </div>
+
+
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-pink-600">
+                            Quem sou eu?
+                        </h3>
+
+                        <p class="leading-relaxed opacity-80 mb-4">
+                            Sou estudante do curso Técnico Integrado em
+                            Informática para Internet no IFRN. Tenho interesse
+                            por tecnologia, desenvolvimento web e design de
+                            interfaces.
+                        </p>
+
+                        <p class="leading-relaxed opacity-80">
+                            Gosto de aprender novas ferramentas e colocar meus
+                            conhecimentos em prática através de projetos
+                            acadêmicos e pessoais.
+                        </p>
+
+                    </div>
+
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+
+                        <div class="card bg-base-200 shadow-sm">
+                            <div class="card-body">
+                                <span class="text-3xl">🎓</span>
+
+                                <h3 class="card-title">
+                                    Formação
+                                </h3>
+
+                                <p class="opacity-70">
+                                    Técnico Integrado em Informática para
+                                    Internet — IFRN.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="card bg-base-200 shadow-sm">
+                            <div class="card-body">
+                                <span class="text-3xl">🖳</span>
+
+                                <h3 class="card-title">
+                                    Área
+                                </h3>
+
+                                <p class="opacity-70">
+                                    Desenvolvimento web e tecnologia.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-12">
+
+                    <h3 class="text-xl font-bold mb-5">
+                        Tecnologias e conhecimentos
+                    </h3>
+
+                    <div class="flex flex-wrap gap-3">
+
+                        <span class="badge badge-primary badge-lg">
+                            HTML
+                        </span>
+
+                        <span class="badge badge-secondary badge-lg">
+                            CSS
+                        </span>
+
+                        <span class="badge badge-accent badge-lg">
+                            JavaScript
+                        </span>
+
+                        <span class="badge badge-info badge-lg">
+                            Python
+                        </span>
+
+                        <span class="badge badge-success badge-lg">
+                            Git
+                        </span>
+
+                        <span class="badge badge-outline badge-lg">
+                            UI/UX
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="py-20 px-6">
+
+            <div class="max-w-6xl mx-auto">
+
+                <div class="text-center mb-12">
+
+                    <span class="badge badge-secondary mb-3">
+                        Habilidades
+                    </span>
+
+                    <h2 class="text-4xl font-bold">
+                        O que eu faço
+                    </h2>
+
+                </div>
+
+
+                <div class="grid md:grid-cols-3 gap-6">
+
+                    <div
+                        class="card bg-base-100 shadow-xl hover:-translate-y-2 transition duration-300"
+                    >
+
+                        <div class="card-body">
+
+                            <div class="text-4xl mb-2">
+                                🖳
+                            </div>
+
+                            <h3 class="card-title text-pink-600">
+                                Desenvolvimento Web
+                            </h3>
+
+                            <p class="opacity-75">
+                                Criação de páginas utilizando HTML, CSS,
+                                JavaScript e ferramentas modernas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="card bg-base-100 shadow-xl hover:-translate-y-2 transition duration-300"
+                    >
+
+                        <div class="card-body">
+
+                            <div class="text-4xl mb-2">
+                                ✍︎
+                            </div>
+
+                            <h3 class="card-title text-pink-600">
+                                UI/UX Design
+                            </h3>
+
+                            <p class="opacity-75">
+                                Organização visual e criação de interfaces
+                                pensando na experiência do usuário.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="card bg-base-100 shadow-xl hover:-translate-y-2 transition duration-300"
+                    >
+
+                        <div class="card-body">
+
+                            <div class="text-4xl mb-2">
+                                𓆙
+                            </div>
+
+                            <h3 class="card-title text-pink-600">
+                                Programação
+                            </h3>
+
+                            <p class="opacity-75">
+                                Desenvolvimento de projetos acadêmicos e
+                                pessoais utilizando programação.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="projetos"
+            class="py-20 px-6 bg-base-100"
+        >
+
+            <div class="max-w-6xl mx-auto">
+
+                <div class="text-center mb-12">
+
+                    <span class="badge badge-primary mb-3">
+                        Meu trabalho
+                    </span>
+
+                    <h2 class="text-4xl font-bold">
+                        Projetos
+                    </h2>
+
+                    <p class="mt-4 opacity-70">
+                        Alguns dos projetos que desenvolvi durante meus estudos.
+                    </p>
+
+                </div>
+
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+                    <div
+                        class="card bg-base-200 shadow-xl border border-pink-100 hover:-translate-y-2 transition duration-300"
+                    >
+
+                        <figure class="text-6xl py-10 bg-pink-50">
+                            🌸
+                        </figure>
+
+                        <div class="card-body">
+
+                            <div class="flex justify-between items-center gap-2">
+
+                                <h3 class="card-title text-pink-600">
+                                    Luau do IFRN
+                                </h3>
+
+                                <span class="badge badge-secondary">
+                                    UI/UX
+                                </span>
+
+                            </div>
+
+                            <p class="opacity-75">
+                                Hotsite desenvolvido para um evento fictício,
+                                com foco em identidade visual e experiência
+                                do usuário.
+                            </p>
+
+                            <div class="card-actions justify-end mt-4">
+
+                                <a
+                                    href="https://hotsite-evento.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn btn-sm btn-primary"
+                                >
+                                    🌐︎ Ver site
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="card bg-base-200 shadow-xl border border-pink-100 hover:-translate-y-2 transition duration-300"
+                    >
+
+                        <figure class="text-6xl py-10 bg-pink-50">
+                            🗓
+                        </figure>
+
+                        <div class="card-body">
+
+                            <div class="flex justify-between items-center gap-2">
+
+                                <h3 class="card-title text-pink-600">
+                                    Girl's Planner
+                                </h3>
+
+                                <span class="badge badge-accent">
+                                    Python
+                                </span>
+
+                            </div>
+
+                            <p class="opacity-75">
+                                Aplicação desenvolvida em Python para
+                                organização de atividades, tarefas e
+                                compromissos.
+                            </p>
+
+                            <div class="card-actions justify-end mt-4">
+
+                                <a
+                                    href="https://github.com/esthercarrvalho/girls_planner"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn btn-sm btn-outline border-pink-400 text-pink-600 hover:bg-pink-500 hover:border-pink-500 hover:text-white"
+                                >
+                                    🖳 GitHub
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="card bg-base-200 shadow-xl border border-pink-100 hover:-translate-y-2 transition duration-300"
+                    >
+
+                        <figure class="text-6xl py-10 bg-pink-50">
+                            👤
+                        </figure>
+
+                        <div class="card-body">
+
+                            <div class="flex justify-between items-center gap-2">
+
+                                <h3 class="card-title text-pink-600">
+                                    Portfólio pessoal
+                                </h3>
+
+                                <span class="badge badge-info">
+                                    Web
+                                </span>
+
+                            </div>
+
+                            <p class="opacity-75">
+                                Portfólio desenvolvido para apresentar meus
+                                estudos, conhecimentos e projetos na área
+                                de tecnologia.
+                            </p>
+
+                            <div class="card-actions justify-end mt-4">
+
+                                <a
+                                    href="https://github.com/annejuliesm/portfolio"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn btn-sm btn-outline border-pink-400 text-pink-600 hover:bg-pink-500 hover:border-pink-500 hover:text-white"
+                                >
+                                    🖳 GitHub
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="contato"
+            class="py-20 px-6"
+        >
+
+            <div class="max-w-3xl mx-auto">
+
+                <div class="text-center mb-10">
+
+                    <span class="badge badge-secondary mb-3">
+                        Contato
+                    </span>
+
+                    <h2 class="text-4xl font-bold">
+                        Vamos conversar?
+                    </h2>
+
+                    <p class="mt-4 opacity-70">
+                        Entre em contato através do formulário abaixo.
+                    </p>
+
+                </div>
+
+
+                <div class="card bg-base-100 shadow-xl">
+
+                    <div class="card-body">
+
+                        <form class="space-y-5">
+
+                            <div>
+
+                                <label
+                                    for="nome"
+                                    class="label"
+                                >
+                                    <span class="label-text font-semibold">
+                                        Nome
+                                    </span>
+                                </label>
+
+                                <input
+                                    id="nome"
+                                    type="text"
+                                    placeholder="Digite seu nome"
+                                    class="input input-bordered w-full focus:border-pink-500"
+                                    required
+                                />
+
+                            </div>
+
+
+                            <div>
+
+                                <label
+                                    for="email"
+                                    class="label"
+                                >
+                                    <span class="label-text font-semibold">
+                                        E-mail
+                                    </span>
+                                </label>
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Digite seu e-mail"
+                                    class="input input-bordered w-full focus:border-pink-500"
+                                    required
+                                />
+
+                            </div>
+
+
+                            <div>
+
+                                <label
+                                    for="mensagem"
+                                    class="label"
+                                >
+                                    <span class="label-text font-semibold">
+                                        Mensagem
+                                    </span>
+                                </label>
+
+                                <textarea
+                                    id="mensagem"
+                                    class="textarea textarea-bordered w-full h-32 focus:border-pink-500"
+                                    placeholder="Escreva sua mensagem..."
+                                ></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary w-full"
+                            >
+                                Enviar mensagem ♡︎
+                            </button>
+
+                        </form>
+
+
+                        <div
+                            role="alert"
+                            class="alert alert-info mt-5"
+                        >
+
+                            <span>
+                                ⓘ Este formulário é apenas demonstrativo
+                                para o projeto acadêmico.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer
+        class="footer footer-center bg-pink-600 text-white p-8"
+    >
+
+        <aside>
+
+            <p class="font-bold text-xl">
+                Anne<span class="text-pink-200">.</span>
+            </p>
+
+            <p>
+                Portfólio acadêmico — Informática para Internet
+            </p>
+
+            <p class="text-pink-100">
+                Desenvolvido com DaisyUI + Tailwind CSS
+            </p>
+
+            <p class="text-sm text-pink-200 mt-2">
+                © 2026 Anne Julie. Todos os direitos reservados.
+            </p>
+
+        </aside>
+
+    </footer>
+
+
+    <script>
+
+        const themeToggle = document.getElementById("theme-toggle");
+        const html = document.documentElement;
+
+        // Recupera o tema salvo
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme) {
+            html.setAttribute("data-theme", savedTheme);
+
+            themeToggle.checked = savedTheme === "dark";
+        }
+
+
+        themeToggle.addEventListener("change", function () {
+
+            if (this.checked) {
+
+                html.setAttribute("data-theme", "dark");
+
+                localStorage.setItem("theme", "dark");
+
+            } else {
+
+                html.setAttribute("data-theme", "light");
+
+                localStorage.setItem("theme", "light");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
