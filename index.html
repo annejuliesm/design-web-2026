@@ -1,51 +1,69 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora Vue — Aula 01</title>
+  <title>Catálogo de Oficinas Vue</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body class="min-h-screen bg-base-200 flex items-center justify-center p-6">
 
-  
-  <div id="app" class="card bg-base-100 shadow-2xl w-full max-w-md">
-    <div class="card-body">
+<body class="min-h-screen bg-base-200 flex items-center justify-center p-4 sm:p-6">
 
-      <h1 class="card-title justify-center text-2xl mb-2">Calculadora Vue</h1>
+  <div id="app" class="card bg-base-100 shadow-xl w-full max-w-xl">
+    <div class="card-body gap-5">
 
-      <!-- VISOR — {{ display }} mostra o estado reativo -->
-      <div class="bg-base-300 rounded-box p-4 mb-4 min-h-16 flex items-center justify-end">
-        <div class="text-3xl font-mono font-bold break-all">{{ display }}</div>
+      <h1 class="card-title justify-center text-2xl">Catálogo de oficinas</h1>
+
+      <form @submit.prevent="adicionarOficina" class="flex flex-col sm:flex-row gap-2">
+        <label for="nova-oficina" class="sr-only">Nome da oficina</label>
+        <input id="nova-oficina" type="text" v-model="novaOficina" placeholder="Nome da nova oficina"
+          class="input input-bordered w-full" autocomplete="off">
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+      </form>
+
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="join" aria-label="Filtros de oficinas">
+          <button type="button" class="btn join-item btn-sm" :class="filtro === 'todas' ? 'btn-primary' : 'btn-outline'"
+            :aria-pressed="filtro === 'todas'" @click="filtro = 'todas'">Todas</button>
+          <button type="button" class="btn join-item btn-sm"
+            :class="filtro === 'favoritas' ? 'btn-primary' : 'btn-outline'" :aria-pressed="filtro === 'favoritas'"
+            @click="filtro = 'favoritas'">Favoritas</button>
+        </div>
+        <p class="text-sm text-base-content/70">
+          Exibindo: <strong>{{ oficinasVisiveis.length }}</strong>
+        </p>
       </div>
 
-      <!-- BOTÕES — cada um dispara um método via @click -->
-      <div class="grid grid-cols-4 gap-2">
+      <p v-if="oficinasVisiveis.length === 0" class="bg-base-200 rounded-box p-5 text-center text-base-content/70"
+        role="status">
+        Nenhuma oficina encontrada.
+      </p>
 
-        <button class="btn btn-ghost text-xl" @click="appendDigit('7')">7</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('8')">8</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('9')">9</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('/')">÷</button>
+      <ul v-else class="space-y-2">
+        <li v-for="oficina in oficinasVisiveis" :key="oficina.id"
+          class="border border-base-300 rounded-box p-3 flex flex-col sm:flex-row sm:items-center gap-3">
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold break-words">{{ oficina.titulo }}</p>
+            <span v-if="oficina.favorita" class="badge badge-warning badge-sm mt-1">Favorita</span>
+          </div>
+          <div class="flex gap-2">
+            <button type="button" class="btn btn-sm flex-1 sm:flex-none"
+              :class="oficina.favorita ? 'btn-warning' : 'btn-outline'"
+              :aria-label="(oficina.favorita ? 'Desfavoritar ' : 'Favoritar ') + oficina.titulo"
+              @click="alternarFavorito(oficina.id)">
+              {{ oficina.favorita ? '★ Favorita' : '☆ Favoritar' }}
+            </button>
+            <button type="button" class="btn btn-error btn-outline btn-sm" :aria-label="'Excluir ' + oficina.titulo"
+              @click="removerOficina(oficina.id)">Excluir</button>
+          </div>
+        </li>
+      </ul>
 
-        <button class="btn btn-ghost text-xl" @click="appendDigit('4')">4</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('5')">5</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('6')">6</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('*')">×</button>
-
-        <button class="btn btn-ghost text-xl" @click="appendDigit('1')">1</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('2')">2</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('3')">3</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('-')">−</button>
-
-        <button class="btn btn-error text-xl" @click="clear">C</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('0')">0</button>
-        <button class="btn btn-accent text-xl" @click="calculate">=</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('+')">+</button>
-
-      </div>
     </div>
   </div>
 
@@ -54,74 +72,78 @@
 
       data() {
         return {
-          display: '0',            // aparece no visor
-          firstOperand: null,      // primeiro número da operação
-          operator: null,          // '+', '-', '*' ou '/'
-          waitingForSecond: false  // true = o próximo dígito substitui o visor
+          novaOficina: '',
+          proximoId: 4,
+          filtro: 'todas',
+          oficinas: [
+            { id: 1, titulo: 'Fotografia digital', favorita: false },
+            { id: 2, titulo: 'Introdução ao Figma', favorita: true },
+            { id: 3, titulo: 'Produção de podcasts', favorita: false }
+          ]
         }
       },
 
-      // ==========================================
-      // as ações da calculadora
-      // ==========================================
+      computed: {
+
+        // TODO 4 - Filtrar oficinas favoritas
+        oficinasVisiveis() {
+          if (this.filtro === 'favoritas') {
+            return this.oficinas.filter(oficina => oficina.favorita);
+          }
+
+          return this.oficinas;
+        }
+      },
+
       methods: {
 
-        clear() {
-          this.display = '0';
-          this.firstOperand = null;
-          this.operator = null;
-          this.waitingForSecond = false;
+        // Limpa o campo
+        limparCampo() {
+          this.novaOficina = '';
         },
 
-        appendDigit(digit) {
-          if (this.waitingForSecond) {
-            this.display = digit;
-            this.waitingForSecond = false;
-          } else if (this.display === '0') {
-            this.display = digit;
-          } else {
-            this.display = this.display + digit;
+        // TODO 1 - Adicionar oficina
+        adicionarOficina() {
+          const titulo = this.novaOficina.trim();
+
+          if (titulo === '') {
+            return;
           }
+
+          this.oficinas.push({
+            id: this.proximoId,
+            titulo: titulo,
+            favorita: false
+          });
+
+          this.proximoId++;
+
+          this.limparCampo();
         },
 
-        setOperator(op) {
-          if (this.display === 'Erro') return;
+        // TODO 2 - Alternar favorita
+        alternarFavorito(id) {
+          const oficina = this.oficinas.find(
+            item => item.id === id
+          );
 
-          if (this.operator !== null && !this.waitingForSecond) {
-            this.calculate();
+          if (!oficina) {
+            return;
           }
 
-          this.firstOperand = parseFloat(this.display);
-          this.operator = op;
-          this.waitingForSecond = true;
+          oficina.favorita = !oficina.favorita;
         },
 
-        calculate() {
-          if (this.operator === null || this.firstOperand === null) return;
-
-          const a = this.firstOperand;
-          const b = parseFloat(this.display);
-          let resultado;
-
-          if (this.operator === '+') {
-            resultado = a + b;
-          } else if (this.operator === '-') {
-            resultado = a - b;
-          } else if (this.operator === '*') {
-            resultado = a * b;
-          } else if (this.operator === '/') {
-            resultado = b === 0 ? 'Erro' : a / b;
-          }
-
-          this.display = String(resultado);
-          this.firstOperand = null;
-          this.operator = null;
-          this.waitingForSecond = true;
+        // TODO 3 - Remover oficina
+        removerOficina(id) {
+          this.oficinas = this.oficinas.filter(
+            item => item.id !== id
+          );
         }
-
       }
 
     }).mount('#app')
   </script>
 </body>
+
 </html>
