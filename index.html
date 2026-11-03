@@ -85,7 +85,7 @@
 
       computed: {
 
-        // TODO 4 - Filtrar oficinas favoritas
+        // TODO 4
         oficinasVisiveis() {
           if (this.filtro === 'favoritas') {
             return this.oficinas.filter(oficina => oficina.favorita);
@@ -97,12 +97,11 @@
 
       methods: {
 
-        // Limpa o campo
         limparCampo() {
           this.novaOficina = '';
         },
 
-        // TODO 1 - Adicionar oficina
+        // TODO 1
         adicionarOficina() {
           const titulo = this.novaOficina.trim();
 
@@ -121,7 +120,7 @@
           this.limparCampo();
         },
 
-        // TODO 2 - Alternar favorita
+        // TODO 2
         alternarFavorito(id) {
           const oficina = this.oficinas.find(
             item => item.id === id
@@ -134,7 +133,7 @@
           oficina.favorita = !oficina.favorita;
         },
 
-        // TODO 3 - Remover oficina
+        // TODO 3
         removerOficina(id) {
           this.oficinas = this.oficinas.filter(
             item => item.id !== id
